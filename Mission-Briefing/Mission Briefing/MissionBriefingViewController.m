@@ -54,7 +54,7 @@
     //
     // 2. Check whether there is text in BOTH the name and password textfields
     //
-    if (self.agentNameTextField && self.agentPasswordTextField)
+    if ((self.agentNameTextField.text.length > 0) && (self.agentPasswordTextField.text.length > 0))
     {
         //
         // 3. The greetingLabel needs to be populated with the the string "Good evening, Agent #", where # is the last name of
