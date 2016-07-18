@@ -34,6 +34,9 @@
                                 <state key="normal" title="Authenticate">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="authenticateAgent:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="sqa-jP-akA"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good evening agent" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6s-Cc-dbR" userLabel="Greeting Label">
                                 <rect key="frame" x="222" y="200" width="154" height="20.5"/>
@@ -94,6 +97,12 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="6V1-5v-Evt"/>
+                    <connections>
+                        <outlet property="agentNameTextField" destination="8O7-tP-wex" id="gIk-ZP-e80"/>
+                        <outlet property="agentPasswordTextField" destination="7cm-88-qFf" id="f0k-22-fZ2"/>
+                        <outlet property="greetingLabel" destination="k6s-Cc-dbR" id="Tlg-1x-LjZ"/>
+                        <outlet property="missionBriefingTextView" destination="qZC-WU-mTE" id="bt8-l5-DoN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

@@ -19,7 +19,9 @@
 
 @end
 
-@implementation ViewController
+//@implementation ViewController
+@implementation MissionBriefingViewController
+
 
 - (void)viewDidLoad
 {
@@ -30,9 +32,9 @@
     //    Hint: there is a string literal that represents empty
     //
     
-    [self.agentNameTextField setText:<#what goes here?#>];
-    self.greetingLabel.text = <#how about here?#>;
-    self.missionBriefingTextView.text = <#and here?#>;
+    [self.agentNameTextField setText:@""];
+    self.greetingLabel.text = @"";
+    self.missionBriefingTextView.text = @"";
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,7 +54,7 @@
     //
     // 2. Check whether there is text in BOTH the name and password textfields
     //
-    if (<#the name textfield should go here#> && <#the password textfield should go here#>)
+    if (self.agentNameTextField && self.agentPasswordTextField)
     {
         //
         // 3. The greetingLabel needs to be populated with the the string "Good evening, Agent #", where # is the last name of
@@ -64,7 +66,12 @@
         
         NSString *agentName = self.agentNameTextField.text;
         // Additional step(s) to remove only the last name
-        self.greetingLabel.text = <#look at #3 above for what text belongs here#>;
+        
+        NSArray *fullName = [agentName componentsSeparatedByString:@" "];
+        NSString *lastName = [fullName objectAtIndex:1];
+        NSLog(@"%@", lastName);
+
+        self.greetingLabel.text = [NSString stringWithFormat: @"Good evening, Agent %@", lastName];
         
         //
         // 4. The mission briefing textview needs to be populated with the briefing from HQ, but it must also include the last
@@ -75,7 +82,7 @@
         //    Set the textview text property to the paragraph in "MissionBriefing.txt"
         //
         
-        self.missionBriefingTextView.text = [NSString stringWithFormat:<#look in missionbriefing.txt for what goes here#>, <#what needs to be placed inside the preceding text?#>];
+        self.missionBriefingTextView.text = [NSString stringWithFormat: @"This mission will be an arduous one, fraught with peril. You will cover much strange and unfamiliar territory. Should you choose to accept this mission, Agent %@, you will certainly be disavowed, but you will be doing your country a great service. This message will self destruct in 5 seconds.", lastName];
         
         //
         // 5. The view's background color needs to switch to green to indicate a successful login by the agent.
@@ -87,9 +94,9 @@
         //    Once you have the color object, you should be able to set the view's background color to this object.
         //
         
-        UIColor *authenticatedBackgroundColor = <#how do we set the color?#>;
+        UIColor *authenticatedBackgroundColor = [UIColor colorWithRed:0.585 green:0.78 blue:0.188 alpha:1];
         // Additional step to set the above color object to self.view's background color
-        self.view.backgroundColor = <#how do we use the above color?#>;
+        self.view.backgroundColor = authenticatedBackgroundColor;
     }
     else
     {
@@ -102,9 +109,9 @@
         //
         //    Once you have the color object, you should be able to set the view's background color to this object.
         //
-        UIColor *accessDeniedBackgroundColor = <#this looks similar to above#>;
+        UIColor *accessDeniedBackgroundColor = [UIColor colorWithRed:0.78 green:0.188 blue:0.188 alpha:1];
         // Additional step to set the above color object to self.view's background color
-        self.view.backgroundColor = <#what color should the background be in this case?#>;
+        self.view.backgroundColor = accessDeniedBackgroundColor;
     }
 }
 
